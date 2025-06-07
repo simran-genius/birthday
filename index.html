@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Pacifico', cursive;
+      background: #000;
+      overflow-x: hidden;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-family: 'Baloo 2', cursive;
+      color: #fff;
+      animation: fadeOut 2s ease 3s forwards;
+    }
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+    .typewriter {
+      display: inline-block;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .main-content {
+      opacity: 0;
+      transition: opacity 2s ease 3s;
+    }
+    body.reveal .main-content {
+      opacity: 1;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-top: 50px;
+      color: #ff1493;
+      text-shadow: 2px 2px #fff;
+    }
+    p {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.8rem;
+      color: #fff0f5;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+    .wish-box {
+      background: rgba(255, 255, 255, 0.2);
+      border: 3px dashed #ff69b4;
+      border-radius: 25px;
+      padding: 30px;
+      margin: 30px auto;
+      display: inline-block;
+      max-width: 700px;
+      box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+    }
+    .wish-box p:nth-child(1) {
+      animation-delay: 4s;
+    }
+    .wish-box p:nth-child(2) {
+      animation-delay: 5s;
+    }
+    .wish-box p:nth-child(3) {
+      animation-delay: 6s;
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .balloons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      gap: 15px;
+      opacity: 0;
+      transform: translateY(-100px);
+      animation: dropIn 1.5s ease 3.5s forwards;
+    }
+    @keyframes dropIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .balloon {
+      width: 40px;
+      height: 60px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: radial-gradient(circle at 30% 30%, #ff69b4, #ff1493);
+      position: relative;
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background: #fff;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: yellow;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro">
+    <div class="typewriter">Shhh... something special is coming...</div>
+  </div>
+
+  <div class="main-content">
+    <h1>🎉 Happy Birthday, Beautiful! 🎂</h1>
+    <div class="wish-box">
+      <p>Wishing you a day filled with love, laughter, and all your favorite things! 💖🎈</p>
+      <p>May your smile shine as bright as the candles on your cake! 🕯️🍰</p>
+      <p>You deserve every sparkle, every giggle, every sweet moment today and always. 💫🎁</p>
+    </div>
+
+    <div class="balloons">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+
+    <div class="stars">
+      <div class="star" style="top: 10%; left: 20%; animation-delay: 0.2s;"></div>
+      <div class="star" style="top: 30%; left: 50%; animation-delay: 0.5s;"></div>
+      <div class="star" style="top: 60%; left: 70%; animation-delay: 0.7s;"></div>
+      <div class="star" style="top: 80%; left: 30%; animation-delay: 1s;"></div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      setTimeout(() => {
+        document.body.classList.add('reveal');
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
